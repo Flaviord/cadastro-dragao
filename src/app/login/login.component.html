@@ -1,14 +1,22 @@
 <div class="card mt-5" style="margin:auto;width: 600px;">
     <div class="card-body">
       <h5 class="card-title">Login</h5>
-      <div class="form-group">
+      <form role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
         <label for="user">Usuário</label>
-        <input type="text" class="form-control" id="user" placeholder="Usuário" [(ngModel)]="user">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password">
-      </div>
-      <button type="submit" class="btn btn-primary" (click)="tryLogin()">Login</button>
+        <input type="text" class="form-control" id="user" placeholder="Usuário" formControlName="user">
+        <div *ngIf="submitted && f.user.errors" class="invalid-feedback">
+            <div *ngIf="f.user.errors.required">Informe o usuário.</div>
+        </div>
+        </div>
+        <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" id="password" placeholder="Senha" formControlName="password">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Informe a senha.</div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary" >Login</button>
+      </form>
     </div>
   </div>
