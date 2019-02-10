@@ -12,13 +12,17 @@ import {RouterModule, Routes, Router} from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { LoginModule } from './login/login.module';
 import { LoginService } from './services/login.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+
 
 
 const appRoutes: Routes = [
-   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  // {
-  //   path: '', component: null, canActivate: [AuthGuard]
-  // },
+  //  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {path: '', component: AppComponent, canActivate: [AuthGuard]},
+  {
+    path: 'dashboard', component: DashboardComponent
+  },
   {
     path: 'login' , component: LoginComponent
   }
@@ -34,7 +38,8 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    LoginModule
+    LoginModule,
+    DashboardModule
   ],
   providers: [ DragonRestService, DragonService, AuthGuard, LoginService, {
     provide: HTTP_INTERCEPTORS,
