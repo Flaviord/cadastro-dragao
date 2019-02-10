@@ -7,20 +7,20 @@ import { LoginService } from './services/login.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private customerService: LoginService, private router: Router) {
+  constructor(private service: LoginService, private router: Router) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-
+    
     const redirectUrl = route['_routerState']['url'];
-
-    if (this.customerService.isLogged()) {
+    console.log('not logged');
+    if (this.service.isLogged()) {
       return true;
     }
-
+    
     this.router.navigateByUrl(
       this.router.createUrlTree(
-        ['/login'], {
+        ['login'], {
           queryParams: {
             redirectUrl
           }

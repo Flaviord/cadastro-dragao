@@ -11,12 +11,14 @@ import { LoginComponent } from './login/login.component';
 import {RouterModule, Routes, Router} from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { LoginModule } from './login/login.module';
+import { LoginService } from './services/login.service';
 
 
 const appRoutes: Routes = [
-  {
-    path: 'login', component: LoginComponent, canActivate: [AuthGuard]
-  },
+   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // {
+  //   path: '', component: null, canActivate: [AuthGuard]
+  // },
   {
     path: 'login' , component: LoginComponent
   }
@@ -34,7 +36,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     LoginModule
   ],
-  providers: [ DragonRestService, DragonService, AuthGuard, {
+  providers: [ DragonRestService, DragonService, AuthGuard, LoginService, {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpConfigInterceptor,
     multi: true
