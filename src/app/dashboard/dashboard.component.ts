@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DragonService } from '../services/dragon.service';
+import { DragonModel } from '../models/dragon.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  public dragon: DragonModel[] = [];
+
+  constructor(private dragonService: DragonService) { }
 
   ngOnInit() {
+    this.listDragon();
+  }
+
+  public listDragon(): void {
+    this.dragonService.listDragons()
+      .subscribe((res) => console.log(res));
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   public submitted: boolean = false;
 
   constructor(private loginService: LoginService,
-             private fb: FormBuilder) {}
+             private fb: FormBuilder,
+             private router: Router) {}
 
   ngOnInit() {
     this.createForm();
@@ -21,8 +23,8 @@ export class LoginComponent implements OnInit {
 
   private createForm(): void {
     this.loginForm = this.fb.group({
-			'user': ['', Validators.required],
-			'password': ['', Validators.required]
+      'user': ['', Validators.required],
+      'password': ['', Validators.required]
     });
   }
 
@@ -35,6 +37,11 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginService.login(this.loginForm.controls['user'].value, this.loginForm.controls['password'].value);
+    this.redirectDashboard();
+  }
+
+  private redirectDashboard(): void {
+    this.router.navigate(['dashboard']);
   }
 
 }
