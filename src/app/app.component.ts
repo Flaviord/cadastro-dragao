@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DragonService } from './services/dragon.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,5 @@ import { DragonService } from './services/dragon.service';
 export class AppComponent implements OnInit{
   title = 'app';
 
-  constructor(private service: DragonService) {}
 
-  ngOnInit() {
-    this.service.listDragons().subscribe(res => console.log(res));
-  }
 }
