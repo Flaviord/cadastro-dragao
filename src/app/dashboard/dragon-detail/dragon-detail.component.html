@@ -5,7 +5,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
   </div>
-<div class="row">
+<div class="row" *ngIf="dragon">
   <div class="col-md-4">
       <h2>{{dragon?.name}}</h2>
       <div>
@@ -15,11 +15,18 @@
           <label>nome: </label>
           <input [(ngModel)]="dragon.name" placeholder="name"/>
       </div>
-      <p *ngFor="let detail of dragon.histories">{{details}}</p>
+      <div *ngIf="dragon.histories">
+        <p *ngFor="let detail of dragon.histories">{{detail}}</p>
+      </div>   
       <button (click)="delete()" class="btn btn-link" >Excluir </button>
       <button (click)="save()" class="btn btn-primary">Salvar</button>
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-link" (click)="goBackDashboard()">Voltar Para Dashboard</button>
+  </div>
+</div> 
 
 </div>

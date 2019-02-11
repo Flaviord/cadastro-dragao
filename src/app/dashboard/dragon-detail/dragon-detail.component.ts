@@ -35,7 +35,11 @@ export class DragonDetailComponent implements OnInit {
   }
 
   public save(): void {
-    //this.dragonService.
+    this.dragonService.editDragon(this.dragon)
+    .subscribe(
+      res => this.goBackDashboard(),
+      err => this.showMsgError(err)
+    );
   }
 
   public delete(): void {
@@ -46,7 +50,7 @@ export class DragonDetailComponent implements OnInit {
     );
   }
 
-  private goBackDashboard(): void {
+  public goBackDashboard(): void {
     this.clearError();
     this.router.navigate(['dashboard']);
   }
