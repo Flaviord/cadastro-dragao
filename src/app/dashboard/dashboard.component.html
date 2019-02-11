@@ -1,3 +1,22 @@
-<p>
-  dashboard works!
-</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="text-center title-dragon">Lista de Dragões</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-2-rem" *ngFor="let d of dragons">
+        <div class="card" >
+            <div class="card-body text-center">
+              <h3 class="bd-title"><small class="text-muted">Seu Dragão</small></h3>
+              <h5 class="card-title"> {{d?.name}}</h5>
+              <p class="card-text">Tipo {{d?.type}}.</p>
+              <p class="card-text">Criado em {{d.createdAt | date:"dd/MM/yy"}}.</p>
+              <a [routerLink]="['/detail', d.id]" class="card-link">Detalhe</a>
+            </div>
+          </div>
+    </div>
+  </div>
+  
+</div>

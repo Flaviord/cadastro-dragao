@@ -9,7 +9,7 @@ import { DragonModel } from '../models/dragon.model';
 })
 export class DashboardComponent implements OnInit {
 
-  public dragon: DragonModel[] = [];
+  public dragons: DragonModel[] = [];
 
   constructor(private dragonService: DragonService) { }
 
@@ -19,7 +19,22 @@ export class DashboardComponent implements OnInit {
 
   public listDragon(): void {
     this.dragonService.listDragons()
-      .subscribe((res) => console.log(res));
+      .subscribe(
+        (res) => this.dragons = this.changeDate(res),
+        err => console.log(err)
+      );
+  }
+
+  private changeDate(res: DragonModel[]): DragonModel[] {
+    return res.map(r => {
+        return new DragonModel(r.id, r.name, r.type, r.histories, this.changeToSlash(r.createdAt));
+    });
+  }
+
+  private changeToSlash(date: string): string {
+    const dateSplit = date.substr(0, 10).split('/');
+    const newdate: string = dateSplit[2] + '-' + dateSplit[1] + '-' + dateSplit[0];
+    return dateSplit.length === 1 ? date : newdate;
   }
 
 }

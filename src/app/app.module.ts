@@ -20,12 +20,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 const appRoutes: Routes = [
   //  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {path: '', component: AppComponent, canActivate: [AuthGuard]},
-  {
-    path: 'dashboard', component: DashboardComponent
-  },
-  {
-    path: 'login' , component: LoginComponent
-  }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'login' , component: LoginComponent }
 
 ];
 

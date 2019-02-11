@@ -1,0 +1,14 @@
+.mt-2-rem {
+    margin-top: 2rem;
+}
+
+.bd-title {
+    border-bottom: rgba(0,0,0,.125)1px solid;
+    padding-bottom: 5px;
+}
+
+.title-dragon {
+    background-color: #17a2b8;
+    color: #ffffff;
+    padding: 2rem;
+}
