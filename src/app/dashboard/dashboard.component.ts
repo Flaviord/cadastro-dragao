@@ -35,21 +35,13 @@ export class DashboardComponent implements OnInit {
   }
 
   private changeToSlash(date: string): string {
-    const dateSplit = date.substr(0, 10).split('/');
-    const newdate: string = dateSplit[2] + '-' + dateSplit[1] + '-' + dateSplit[0];
+    let dateSplit = [];
+    let newdate: string = null;
+    if (date) {
+      dateSplit = date.substr(0, 10).split('/');
+      newdate = dateSplit[2] + '-' + dateSplit[1] + '-' + dateSplit[0];
+    }
     return dateSplit.length === 1 ? date : newdate;
-  }
-
-  public goToDetails(url, id) {
-
-    const myurl = `${url}/${id}`;
-    this.router.navigateByUrl(myurl).then(e => {
-      if (e) {
-        console.log("Navigation is successful!");
-      } else {
-        console.log("Navigation has failed!");
-      }
-    });
   }
 
 }

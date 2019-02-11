@@ -20,5 +20,9 @@ export class DragonService {
         );
     }
 
-
+    public deleteDragon(id: number ): Observable<any> {
+        return this.service.deleteDragon(id).pipe (
+            switchMap(res => of(res))
+        );
+    }
 }

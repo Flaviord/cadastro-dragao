@@ -31,6 +31,6 @@ export class DragonRestService {
     }
 
     public deleteDragon(id: number): Observable<any> {
-        return this.http.delete<DragonModel[]>(`${this.URL}/${id}`, this.options);
+        return this.http.delete<any>(`${this.URL}/${id}`, this.options);
     }
 }
