@@ -14,17 +14,17 @@ import { LoginModule } from './login/login.module';
 import { LoginService } from './services/login.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { DragonDetailComponent } from './dashboard/dragon-detail/dragon-detail.component';
 
 
 
 const appRoutes: Routes = [
-  //  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {path: '', component: AppComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'login' , component: LoginComponent }
-
+  { path: 'login' , component: LoginComponent } ,
+  { path: 'detail/:id', component: DragonDetailComponent}
 ];
-
 
 @NgModule({
   declarations: [

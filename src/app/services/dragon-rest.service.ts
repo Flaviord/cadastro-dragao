@@ -18,8 +18,8 @@ export class DragonRestService {
         return this.http.get<DragonModel[]>(`${this.URL}`);
     }
 
-    public detailsDragon(id: number): Observable<DragonModel[]> {
-        return this.http.get<DragonModel[]>(`${this.URL}/${id}`);
+    public getDragon(id: number): Observable<DragonModel> {
+        return this.http.get<DragonModel>(`${this.URL}/${id}`);
     }
 
     public createDragon(dragon: DragonModel): Observable<any> {

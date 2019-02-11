@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DragonService } from '../services/dragon.service';
 import { DragonModel } from '../models/dragon.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,9 @@ export class DashboardComponent implements OnInit {
 
   public dragons: DragonModel[] = [];
 
-  constructor(private dragonService: DragonService) { }
+  constructor(private dragonService: DragonService,
+              private router: Router,
+              private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.listDragon();
@@ -35,6 +38,18 @@ export class DashboardComponent implements OnInit {
     const dateSplit = date.substr(0, 10).split('/');
     const newdate: string = dateSplit[2] + '-' + dateSplit[1] + '-' + dateSplit[0];
     return dateSplit.length === 1 ? date : newdate;
+  }
+
+  public goToDetails(url, id) {
+
+    const myurl = `${url}/${id}`;
+    this.router.navigateByUrl(myurl).then(e => {
+      if (e) {
+        console.log("Navigation is successful!");
+      } else {
+        console.log("Navigation has failed!");
+      }
+    });
   }
 
 }

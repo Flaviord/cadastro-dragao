@@ -14,6 +14,11 @@ export class DragonService {
         );
     }
 
+    public getDragon(id: number): Observable<DragonModel> {
+        return this.service.getDragon(id).pipe (
+            switchMap(res => of(res))
+        );
+    }
 
 
 }

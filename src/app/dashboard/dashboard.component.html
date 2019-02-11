@@ -12,8 +12,8 @@
               <h3 class="bd-title"><small class="text-muted">Seu Dragão</small></h3>
               <h5 class="card-title"> {{d?.name}}</h5>
               <p class="card-text">Tipo {{d?.type}}.</p>
-              <p class="card-text">Criado em {{d.createdAt | date:"dd/MM/yy"}}.</p>
-              <a [routerLink]="['/detail', d.id]" class="card-link">Detalhe</a>
+              <p class="card-text">Criado em {{d?.createdAt | date:"dd/MM/yy"}}.</p>
+              <a [routerLink]="['/detail',d?.id]" class="card-link">Detalhe</a>
             </div>
           </div>
     </div>
