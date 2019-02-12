@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { DragonDetailComponent } from './dragon-detail/dragon-detail.component';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [DragonDetailComponent, DashboardComponent]
 })

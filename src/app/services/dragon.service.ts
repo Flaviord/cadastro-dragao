@@ -31,4 +31,10 @@ export class DragonService {
             switchMap(res => of(res))
         );
     }
+
+    public createDragon(dragon: DragonModel): Observable<any> {
+        return this.service.createDragon(dragon).pipe(
+            switchMap(res => of(res))
+        );
+    }
 }

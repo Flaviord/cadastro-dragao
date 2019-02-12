@@ -28,7 +28,7 @@ export class DragonDetailComponent implements OnInit {
     this.route.paramMap.pipe(
       switchMap((params) => this.dragonService.getDragon(+params.get('id')))
     ).subscribe(
-      dragon => {this.dragon = dragon, console.log(dragon); },
+      dragon => this.dragon = dragon,
       err => console.log(err),
       () => console.log('Complete')
     );

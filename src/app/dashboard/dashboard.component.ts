@@ -44,4 +44,8 @@ export class DashboardComponent implements OnInit {
     return dateSplit.length === 1 ? date : newdate;
   }
 
+  public newDragon(): void {
+    this.router.navigate(['create']);
+  }
+
 }

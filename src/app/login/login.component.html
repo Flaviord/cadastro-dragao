@@ -5,15 +5,15 @@
         <div class="form-group">
         <label for="user">Usuário</label>
         <input type="text" class="form-control" id="user" placeholder="Usuário" formControlName="user">
-        <div *ngIf="submitted && f.user.errors" class="invalid-feedback">
-            <div *ngIf="f.user.errors.required">Informe o usuário.</div>
+        <div *ngIf="submitted && f.user.errors">
+            <small *ngIf="f.user.errors.required" class="form-text text-muted">Informe o usuário.</small>
         </div>
         </div>
         <div class="form-group">
         <label for="password">Senha</label>
         <input type="password" class="form-control" id="password" placeholder="Senha" formControlName="password">
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Informe a senha.</div>
+        <div *ngIf="submitted && f.password.errors">
+            <small *ngIf="f.password.errors.required">Informe a senha.</small>
         </div>
         </div>
         <button type="submit" class="btn btn-primary" >Login</button>
