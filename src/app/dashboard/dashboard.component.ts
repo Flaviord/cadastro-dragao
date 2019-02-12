@@ -11,6 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   public dragons: DragonModel[] = [];
+  public order: string = 'name';
+  public ascending: boolean = true;
 
   constructor(private dragonService: DragonService,
               private router: Router,

@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     LoginModule,
     DashboardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [ DragonRestService, DragonService, AuthGuard, LoginService, {
     provide: HTTP_INTERCEPTORS,

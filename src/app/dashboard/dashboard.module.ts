@@ -4,6 +4,8 @@ import { DragonDetailComponent } from './dragon-detail/dragon-detail.component';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { OrderByPipe } from '../services/orderby.pipe';
+
 
 
 @NgModule({
@@ -13,6 +15,6 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [DragonDetailComponent, DashboardComponent]
+  declarations: [DragonDetailComponent, DashboardComponent, OrderByPipe]
 })
 export class DashboardModule { }
